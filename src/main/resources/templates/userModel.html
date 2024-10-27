@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>userModel Test</title>
+</head>
+<body>
+    <h1> Demo </h1>
+    <h2>User Details</h2>
+    <div th:object="${userModel}">
+        <p>Name: <strong th:text="*{username}"> </strong></p>
+        <p>Name: <strong th:text="*{email}"> </strong></p>
+        <p>Name: <strong th:text="*{role}"> </strong></p>
+        <p>Name: <strong th:text="*{gender}"> </strong></p>
+    </div>
+</body>
+</html>
