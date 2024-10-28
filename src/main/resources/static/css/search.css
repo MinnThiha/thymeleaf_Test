@@ -1,0 +1,43 @@
+.toolbar {
+    background-color: #6a0dad;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbar img {
+    height: 40px;
+}
+
+.toolbar button {
+    font-size: 16px;
+    padding: 8px 16px;
+}
+
+.filter-options {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.form-control {
+    font-size: 0.875rem; /* Adjust font size */
+    height: 40px; /* Adjust height if needed */
+}
+.form_1{
+    padding: 20px;
+}
+.card {
+    padding: 20px; /* Add padding all around the card */
+    width: calc(100% - 10px); /* Full width minus padding (20px left and right) */
+    margin: 10px auto; /* Center the card and add vertical margin */
+}
+
+.card-body {
+    padding: 10px; /* Optional: Adjust padding */
+}
+
+.btn {
+    font-size: 0.875rem; /* Adjust button font size */
+}
