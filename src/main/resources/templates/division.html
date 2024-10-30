@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Division Information</title>
+    <link th:href="@{/css/division.css}" rel="stylesheet"/>
+</head>
+<body>
+    <h1>Division Lookup</h1>
+    <div class="container">
+        <div>
+<!-- Input field and button to fetch Division details -->
+            <label for="division-id-input">Enter Division ID:</label>
+            <input type="number" id="division-id-input" placeholder="Enter Division ID" required>
+            <button onclick="fetchDivision()">Search</button>
+        </div>
+<!-- Display Division details -->
+        <div id="division-info" class="division-card" style="display: none; margin-top: 20px;">
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td id="division-id"></td>
+                    <td id="division-code"></td>
+                    <td id="division-description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<script>
+        function fetchDivision() {
+            const divisionId = document.getElementById("division-id-input").value;
+
+            if (!divisionId) {
+                alert("Please enter a division ID.");
+                return;
+            }
+
+            // Fetch Division details based on input ID
+            fetch(`/divisionData/${divisionId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Division not found");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Display Division details in HTML elements
+                    document.getElementById("division-info").style.display = "block";
+                    document.getElementById("division-id").textContent = data.division_id;
+                    document.getElementById("division-code").textContent = data.division_code;
+                    document.getElementById("division-description").textContent = data.description;
+                })
+                .catch(error => {
+                    alert("Error: " + error.message);
+                    document.getElementById("division-info").style.display = "none";
+                });
+        }
+</script>
+</body>
+</html>
